@@ -1,7 +1,7 @@
 <div class="grid">
   <% @games.each do |game| %>
     <div class="col-1-3">
-      <h1 class="title"><%= game["name"] %></h1>
+      <a href=<%= game["site_detail_url"] %>><h1 class="title"><%= game["name"] %></h1></a>
       <% if game["image"] %>
         <% if game["image"]["small_url"] %>
           <img class="game-img" src=<%= game["image"]["small_url"] %>>
