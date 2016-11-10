@@ -35,6 +35,7 @@ class CreateGames < ActiveRecord::Migration
       t.string :platforms
       t.string :publishers
       t.string :releases
+      t.string :resource_type
       t.string :reviews
       t.string :similar_games
       t.string :site_detail_url
