@@ -10,6 +10,8 @@ require 'rubygems'
 
 require 'uri'
 require 'pathname'
+require 'json'
+require 'Net/HTTP'
 
 require 'pg'
 require 'active_record'
