@@ -9,9 +9,9 @@ require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 require 'rubygems'
 
 require 'uri'
+require 'open-uri'
 require 'pathname'
 require 'json'
-require 'Net/HTTP'
 
 require 'pg'
 require 'active_record'

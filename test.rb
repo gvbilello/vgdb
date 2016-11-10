@@ -1,43 +1,45 @@
-require 'uri'
-require 'Net/HTTP'
-require 'json'
-require 'pry'
-require 'pry-byebug'
+# require 'uri'
+# require 'Net/HTTP'
+# require 'json'
+# require 'pry'
+# require 'pry-byebug'
 
-loop do
-  puts "Welcome to the VGDB"
-  puts "-------------------"
-  puts "-------------------"
-  puts "Enter a game title to search for:"
-  puts "(or enter 'quit' to exit)"
+# api_key = "9a57f24d398e4c62b1abf3cd6cc029de05a7c006"
 
-  search_query = gets.chomp
-  break if search_query == "quit"
+# loop do
+#   puts "Welcome to the VGDB"
+#   puts "-------------------"
+#   puts "-------------------"
+#   puts "Enter a game title to search for:"
+#   puts "(or enter 'quit' to exit)"
 
-  search_link = "http://www.giantbomb.com/api/search/?api_key=#{api_key}&format=json&query=#{search_query}"
+#   search_query = gets.chomp
+#   break if search_query == "quit"
 
-  results = JSON.parse(Net::HTTP.get(URI(search_link)))["results"]
+#   search_link = "http://www.giantbomb.com/api/search/?api_key=#{api_key}&format=json&query=#{search_query}"
 
-  puts "Found the following games:"
+#   results = JSON.parse(Net::HTTP.get(URI(search_link)))["results"]
+#   binding.pry
+#   puts "Found the following games:"
 
-  indx = 0
-  while indx < results.length
-    puts "[#{indx}] - #{results[indx]["name"]}"
-    indx += 1
-  end
+#   indx = 0
+#   while indx < results.length
+#     puts "[#{indx}] - #{results[indx]["name"]}"
+#     indx += 1
+#   end
 
-  puts "Which game would you like more information about?"
-  puts "(please enter the corresponding index number)"
-  game_indx = gets.chomp.to_i
+#   puts "Which game would you like more information about?"
+#   puts "(please enter the corresponding index number)"
+#   game_indx = gets.chomp.to_i
 
-  game = results[game_indx]
-  puts "-------------------"
-  puts "-------------------"
-  puts "What information would you like?"
-  game.each do |key, value|
-    puts key
-  end
-  info_topic = gets.chomp
-  puts game[info_topic]
-  binding.pry
-end
+#   game = results[game_indx]
+#   puts "-------------------"
+#   puts "-------------------"
+#   puts "What information would you like?"
+#   game.each do |key, value|
+#     puts key
+#   end
+#   info_topic = gets.chomp
+#   puts game[info_topic]
+#   binding.pry
+# end
