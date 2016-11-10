@@ -88,6 +88,7 @@ DEPENDENCIES
   activesupport (~> 4.2)
   bcrypt
   faker
+  json
   pg
   pry
   pry-byebug

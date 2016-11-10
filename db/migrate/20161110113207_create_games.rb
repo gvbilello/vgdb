@@ -21,15 +21,16 @@ class CreateGames < ActiveRecord::Migration
       t.string :first_appearance_people
       t.string :franchises
       t.string :genres
+      t.string :game_id
       t.string :image
       t.string :images
       t.string :killed_characters
       t.string :locations
       t.string :name
       t.string :number_of_user_reviews
-      t.string :ojects
+      t.string :objects
       t.string :original_game_rating
-      t.string :original_release_day
+      t.string :original_release_date
       t.string :people
       t.string :platforms
       t.string :publishers
