@@ -1,12 +1,27 @@
-<div class="grid">
+<div class="game">
   <% @games.each do |game| %>
-    <div class="col-1-3">
-      <a href=<%= game["site_detail_url"] %>><h1 class="title"><%= game["name"] %></h1></a>
-      <% if game["image"] %>
-        <% if game["image"]["small_url"] %>
-          <img class="game-img" src=<%= game["image"]["small_url"] %>>
+    <div class="game-result">
+      <div class="game-image">
+        <% if game["image"] %>
+          <% if game["image"]["icon_url"] %>
+            <img class="game-img" src=<%= game["image"]["icon_url"] %>>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+      <div class="game-data">
+        <a href=<%= game["site_detail_url"] %>><p class="game-title"><%= game["name"] %></p></a>
+        <p class="platforms">(<%= platforms(game) %>)</p>
+        <% if game["deck"] %>
+          <p class="game-deck"><%= game["deck"] %></p>
+        <% end %>
+      </div>
+      <div class="collection-buttons">
+        <% if logged_in? %>
+          <button class="myButton" name="add-played">Played</button>
+          <button class="myButton" name="add-playing">Playing</button>
+          <button class="myButton" name="add-to-play">Want to Play</button>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>

@@ -3,5 +3,4 @@ def api_key
 end
 
 def result_parse(search_query)
-
 end

@@ -19,15 +19,27 @@
   <title>VGDB</title>
 </head>
 <body>
-  <h1>Video Game Database</h1>
-  <a href="/">home</a><br>
-  <div class="container">
-  <h2>Search for a game:</h2>
-  <form id="game-search" action="/games" method="GET">
-    <input type="text" name="search_query" placeholder="Game Title">
-    <input type="submit" value="Search">
-  </form><br>
-</div>
-  <%= yield %>
+  <header class="header">
+    <div class="site-title">
+      <h1 class="title">GoodGames</h1>
+    </div>
+    <nav class="site-menu"><ul>
+      <li><a class="home-link" href="/">home</a></li>
+      <% if logged_in? %>
+        <li><a href=<%= "/users/#{current_user.id}" %>><%= current_user.username %></a></li>
+        <li><form action='/sessions' method='POST'><input type='hidden' name='_method' value='DELETE'><input type='submit' value='Logout'></form></li>
+      <% else %>
+        <li><a href='/users/new'>Register</a></li>
+        <li><a href='/sessions/new'>Log In</a></li>
+      <% end %>
+        <li><form class="game-search" action="/games" method="GET">
+        <input type="text" name="search_query" placeholder="Search games">
+        <input type="submit" value="Search">
+      </form></li>
+    </ul></nav>
+  </header>
+  <div class="main-content">
+    <%= yield %>
+  </div>
 </body>
 </html>
